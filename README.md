@@ -70,6 +70,7 @@ The mobile GUI is the original GUI I made long ago. Some people said it worked o
 
 <details><summary><h2>List of Cheats</h2></summary>
 
+* [React GUI](unobfuscated/reactGui.js)
 * [GUI](unobfuscated/gui.js)
 * [Mobile GUI](unobfuscated/mobileGui.js)
 ### [Monster Brawl](unobfuscated/brawl)
