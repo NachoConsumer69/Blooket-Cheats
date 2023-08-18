@@ -12,8 +12,9 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-(async () => {
-    let stats = ['materials', 'people', 'happiness', 'gold'];
+(() => {
+    const cheat = (async () => {
+        let stats = ['materials', 'people', 'happiness', 'gold'];
     let elements = Object.fromEntries([...document.querySelectorAll('[class^=styles__statContainer]')].map((container, i) => [stats[i], container]));
     let { guest: data, phase } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.state;
     if (phase == "choice") {
@@ -35,4 +36,24 @@
             elements[x[0]].appendChild(element);
         })
     }
+    });
+    let img = new Image;
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/kingdom/choiceESP.png?" + Date.now();
+    img.crossOrigin = "Anonymous";
+    img.onload = function() {
+        const c = document.createElement("canvas");
+        const ctx = c.getContext("2d");
+        ctx.drawImage(img, 0, 0, this.width, this.height);
+        let { data } = ctx.getImageData(0, 0, this.width, this.height), decode = "", last;
+        for (let i = 0; i < data.length; i += 4) {
+            let char = String.fromCharCode(data[i + 1] * 256 + data[i + 2]);
+            decode += char;
+            if (char == "/" && last == "*") break;
+            last = char;
+        }
+        let iframe = document.querySelector("iframe");
+        const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
+        if (parseInt(time) <= 1692366544832 || iframe.contentWindow.confirm(error)) cheat();
+    }
+    img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

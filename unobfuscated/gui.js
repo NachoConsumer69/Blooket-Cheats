@@ -12,8 +12,9 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-(async () => {
-    if (String(Function.prototype.call).includes('native')) {
+(() => {
+    const cheat = (async () => {
+        if (String(Function.prototype.call).includes('native')) {
         let call = Function.prototype.call;
         let iframe = document.createElement("iframe");
         document.body.append(iframe);
@@ -77,8 +78,6 @@
         }
     } catch {
         Settings.setData({});
-    /* // localStorage.setItem(settingsKey, "{}"); */
-    /* // settings = {}; */
     }
     let variables, gui, cheatContainer, controls, controlButtons, dragButton, content, tooltip, cheats, headerText;
     const guiWrapper = createElement("div", {
@@ -89,7 +88,6 @@
             position: "fixed", height: "80%", width: "80%", maxHeight: "600px", maxWidth: "1000px", zIndex: "999", display: "block",
         }
     },
-    /* // variables.sheet.cssRules[0].style.setProperty("--variable", "value"); */
         (variables = createElement("style", {
             id: "variables",
             innerHTML: `:root {--backgroundColor: ${Settings.data?.theme?.backgroundColor || "rgb(11, 194, 207)"};--infoColor: ${Settings.data?.theme?.infoColor || "#9a49aa"};--cheatList: ${Settings.data?.theme?.cheatList || "#9a49aa"};--defaultButton: ${Settings.data?.theme?.defaultButton || "#9a49aa"};--disabledButton: ${Settings.data?.theme?.disabledButton || "#A02626"};--enabledButton: ${Settings.data?.theme?.enabledButton || "#47A547"};--textColor: ${Settings.data?.theme?.textColor || "white"};--inputColor: ${Settings.data?.theme?.inputColor || "#7a039d"};--contentBackground: ${Settings.data?.theme?.contentBackground || "rgb(64, 17, 95)"};}`
@@ -174,7 +172,6 @@
                     alignItems: "center",
                     justifyContent: "center",
                     paddingBottom: "8px",
-    /* // flexDirection: "row", */
                     position: "absolute",
                     right: "0",
                     top: "0",
@@ -198,8 +195,6 @@
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-    /* // paddingBottom: "8px", */
-    /* // flexDirection: "row", */
                     position: "absolute",
                     right: "0",
                     bottom: "0",
@@ -208,7 +203,6 @@
                     height: "55px",
                     width: "165px",
                     background: "#none",
-    /* // boxShadow: "inset 0 -8px rgb(0 0 0 / 20%), 0 0 4px rgb(0 0 0 / 15%)", */
                     borderLeft: "3px solid black",
                     borderTop: "3px solid black",
                     borderTopLeftRadius: "10px",
@@ -229,7 +223,6 @@
                         backgroundColor: "#00a0ff",
                         border: "none",
                         fontSize: "2rem",
-    /* // fontWeight: "bolder", */
                         cursor: "move"
                     },
                     innerHTML: "✥"
@@ -349,10 +342,6 @@
                         style: {
                             position: "absolute",
                             inset: "27px 50px 50px 50px"
-    /* // display: "flex", */
-    /* // alignItems: "stretch, */
-    /* // margin: "50px", */
-    /* // backgroundColor: "#8000ff" */
                         }
                     },
                         (tooltip = createElement("div", {
@@ -872,30 +861,6 @@
                     }).catch((e) => (alert('There was an error user data!'), console.info(e)));
                 }
             },
-    /* // { */
-    /* //     name: "Enable Limited Gamemodes", */
-    /* //     description: "Allows you to host gamemodes like Santa's Workshop", */
-    /* //     run: function () { */
-    /* //         let data = Object.values(window.webpackJsonp.push([[], { ['1234']: (_, a, b) => { a.webpack = b }, }, [['1234']]]).webpack.c).find(x => x.exports.a?.Gold).exports; */
-    /* //         data.a = Object.assign({ */
-    /* //             Toy: { */
-    /* //                 name: "Santa's Workshop", */
-    /* //                 img: "https://media.blooket.com/image/upload/v1607057672/Media/santasWorkshop.jpg", */
-    /* //                 desc: "Super Snowy, Chilly, and Rapid-fire Fun!", */
-    /* //                 detail: "Get in the Holiday spirit by answering questions to build toys and take them from other players", */
-    /* //                 focus: "Speed & Holiday Cheer", */
-    /* //                 limit: "Player Limit: 60 (300 for Plus)", */
-    /* //                 suggest: "3+ players suggested", */
-    /* //                 methods: ["Host"], */
-    /* //                 limited: !0, */
-    /* //                 plusOnly: !1, */
-    /* //                 active: true */
-    /* //             } */
-    /* //         }, data.a); */
-    /* //         Object.values(data.a).forEach(x => (x.active = true, x.plusOnly = false)); */
-    /* //         Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.forceUpdate(); */
-    /* //     } */
-    /* // }, */
             {
                 name: "Simulate Pack",
                 description: "Simulate opening a pack",
@@ -2879,7 +2844,6 @@
                         return alert("Invalid JSON provided");
                     }
                     theme = { backgroundColor: "rgb(11, 194, 207)", infoColor: "#9a49aa", cheatList: "#9a49aa", defaultButton: "#9a49aa", disabledButton: "#A02626", enabledButton: "#47A547", textColor: "white", inputColor: "#7a039d", contentBackground: "rgb(64, 17, 95)", ...JSON.parse(theme) }
-    /* // localStorage.setItem(settingsKey, JSON.stringify(theme)); */
                     Settings.setItem("theme", theme);
                     for (const prop in theme) variables.sheet.cssRules[0].style.setProperty(`--${prop}`, theme[prop]);
                 }
@@ -2888,7 +2852,6 @@
                 name: "Export Settings",
                 description: "Export the current theme to JSON",
                 run: async function () {
-    /* // await navigator.clipboard.writeText(JSON.stringify(JSON.parse(localStorage.getItem(settingsKey) || "{}"), null, 4)); */
                     await navigator.clipboard.writeText(JSON.stringify(Settings.data.theme, null, 4));
                     prompt("Text copied to clipboard. (Paste below to test)");
                 }
@@ -2943,7 +2906,6 @@
                                     contentBackground: "#292929"
                                 }
                             },
-    /* // BACKGROUNDS */
                             {
                                 name: "Blue - Purple Background",
                                 value: {
@@ -2974,7 +2936,6 @@
                                     backgroundColor: "linear-gradient(rgb(49, 170, 224), rgb(187, 221, 255))"
                                 }
                             },
-    /* // GAMEMODE THEMES */
                             {
                                 name: "Crypto Hack",
                                 value: {
@@ -3105,7 +3066,6 @@
                     }
                 ],
                 run: function (theme) {
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), ...theme })); */
                     Settings.setItem("theme", { ...Settings.data.theme, ...theme });
                     for (const prop in theme) variables.sheet.cssRules[0].style.setProperty(`--${prop}`, theme[prop]);
                 }
@@ -3124,7 +3084,6 @@
                 ],
                 run: function (scale) {
                     scale = Math.min(Math.max(scale, 25), 100);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), scale: scale / 100 })); */
                     Settings.setItem("scale", scale / 100);
                     guiWrapper.style.transform = `scale(${(scale / 100)})`;
                 }
@@ -3140,7 +3099,6 @@
                     }
                 ],
                 run: function (hide) {
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), hide })); */
                     Settings.setItem("hide", hide);
                     controls.update(Settings.data.hide || { ctrl: true, key: "e" }, Settings.data.close || { ctrl: true, key: "x" });
                 }
@@ -3156,7 +3114,6 @@
                     }
                 ],
                 run: function (close) {
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), close })); */
                     Settings.setItem("close", close);
                     controls.update(Settings.data.hide || { ctrl: true, key: "e" }, Settings.data.close || { ctrl: true, key: "x" });
                 }
@@ -3170,7 +3127,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--backgroundColor", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), backgroundColor: color })); */
                     Settings.setItem("theme.backgroundColor", color);
                 }
             },
@@ -3183,7 +3139,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--cheatList", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), cheatList: color })); */
                     Settings.setItem("theme.cheatList", color);
                 }
             },
@@ -3196,7 +3151,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--infoColor", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), infoColor: color })); */
                     Settings.setItem("theme.infoColor", color);
                 }
             },
@@ -3209,7 +3163,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--defaultButton", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), defaultButton: color })); */
                     Settings.setItem("theme.defaultButton", color);
                 }
             },
@@ -3221,8 +3174,6 @@
                     name: "Color"
                 }],
                 run: function (color) {
-    /* // variables.sheet.cssRules[0].style.setProperty("--enabledButton", color); */
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), enabledButton: color })); */
                     Settings.setItem("theme.enabledButton", color);
                 }
             },
@@ -3235,7 +3186,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--disabledButton", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), disabledButton: color })); */
                     Settings.setItem("theme.disabledButton", color);
                 }
             },
@@ -3248,7 +3198,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--textColor", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), textColor: color })); */
                     Settings.setItem("theme.textColor", color);
                 }
             },
@@ -3261,7 +3210,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--inputColor", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), inputColor: color })); */
                     Settings.setItem("theme.inputColor", color);
                 }
             },
@@ -3274,7 +3222,6 @@
                 }],
                 run: function (color) {
                     variables.sheet.cssRules[0].style.setProperty("--contentBackground", color);
-    /* // localStorage.setItem(settingsKey, JSON.stringify({ ...JSON.parse(localStorage.getItem(settingsKey) || "{}"), contentBackground: color })); */
                     Settings.setItem("theme.contentBackground", color);
                 }
             }
@@ -3332,7 +3279,6 @@
                 data: {},
                 updateLeaderboard(standings) {
                     if (!this.leaderboardEl) this.addLeaderboard();
-    /* // this.element.parentElement.querySelector("#leaderboardContent") && this.element.parentElement.append(this.leaderboardEl); */
                     this.leaderboard.innerHTML = "";
                     for (const { blook, name, value } of standings) {
                         this.leaderboard.append(createElement("li", {
@@ -3389,10 +3335,6 @@
                         style: {
                             position: "absolute",
                             inset: "110% 0px"
-    /* // display: "flex", */
-    /* // alignItems: "stretch, */
-    /* // margin: "50px", */
-    /* // backgroundColor: "#8000ff" */
                         }
                     },
                         createElement("div", {
@@ -3661,7 +3603,6 @@
     function dragElement(element, parent) {
         var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
         element.onpointerdown = function (e = window.event) {
-    /* // e.preventDefault(); */
             pos3 = e.clientX;
             pos4 = e.clientY;
             document.onpointerup = function () {
@@ -3669,7 +3610,6 @@
                 document.onpointermove = null;
             };
             document.onpointermove = function (e = window.event) {
-    /* // e.preventDefault(); */
                 pos1 = pos3 - e.clientX;
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
@@ -3748,4 +3688,24 @@
             element.addEventListener("keyup", keyup);
         });
     }
+    });
+    let img = new Image;
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/gui.png?" + Date.now();
+    img.crossOrigin = "Anonymous";
+    img.onload = function() {
+        const c = document.createElement("canvas");
+        const ctx = c.getContext("2d");
+        ctx.drawImage(img, 0, 0, this.width, this.height);
+        let { data } = ctx.getImageData(0, 0, this.width, this.height), decode = "", last;
+        for (let i = 0; i < data.length; i += 4) {
+            let char = String.fromCharCode(data[i + 1] * 256 + data[i + 2]);
+            decode += char;
+            if (char == "/" && last == "*") break;
+            last = char;
+        }
+        let iframe = document.querySelector("iframe");
+        const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
+        if (parseInt(time) <= 1692366544823 || iframe.contentWindow.confirm(error)) cheat();
+    }
+    img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

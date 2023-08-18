@@ -12,11 +12,32 @@
 
 /* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
-(async () => {
-    let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+(() => {
+    const cheat = (async () => {
+        let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
     stateNode.setState({ isCheating: false });
     stateNode.props.liveGameController.setVal({
         path: `c/${stateNode.props.client.name}/ic`,
         val: false
     });
+    });
+    let img = new Image;
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/dinos/stopCheating.png?" + Date.now();
+    img.crossOrigin = "Anonymous";
+    img.onload = function() {
+        const c = document.createElement("canvas");
+        const ctx = c.getContext("2d");
+        ctx.drawImage(img, 0, 0, this.width, this.height);
+        let { data } = ctx.getImageData(0, 0, this.width, this.height), decode = "", last;
+        for (let i = 0; i < data.length; i += 4) {
+            let char = String.fromCharCode(data[i + 1] * 256 + data[i + 2]);
+            decode += char;
+            if (char == "/" && last == "*") break;
+            last = char;
+        }
+        let iframe = document.querySelector("iframe");
+        const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
+        if (parseInt(time) <= 1692366544438 || iframe.contentWindow.confirm(error)) cheat();
+    }
+    img.onerror = img.onabort = () => (img.src = null, cheat());
 })();
