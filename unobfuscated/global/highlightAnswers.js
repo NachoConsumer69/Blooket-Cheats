@@ -15,13 +15,13 @@
 (() => {
     const cheat = (async () => {
         const { stateNode: { state, props } } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    [...document.querySelectorAll(`[class*="answerContainer"]`)].forEach((answer, i) => {
-        if ((state.question || props.client.question).correctAnswers.includes((state.question || props.client.question).answers[i])) answer.style.backgroundColor = "rgb(0, 207, 119)";
-        else answer.style.backgroundColor = "rgb(189, 15, 38)";
-    });
+        [...document.querySelectorAll(`[class*="answerContainer"]`)].forEach((answer, i) => {
+            if ((state.question || props.client.question).correctAnswers.includes((state.question || props.client.question).answers[i])) answer.style.backgroundColor = "rgb(0, 207, 119)";
+            else answer.style.backgroundColor = "rgb(189, 15, 38)";
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/global/highlightAnswers.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/global/highlightAnswers.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -36,7 +36,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544623 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819032 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

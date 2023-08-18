@@ -15,32 +15,32 @@
 (() => {
     const cheat = (async () => {
         let interval = setInterval(async () => {
-        try {
-            let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-            let clients = await stateNode.props.liveGameController.getDatabaseRef("c");
-            let c = {};
-            let bareClients = {};
-            clients.on("value", value => {
-                const clients = value.val() || {};
-                const joined = [];
-                for (const client in clients) if (!c[client]) {
-                    joined.push(client);
-                    bareClients[client.replace(/[0-9]/g, '')] = (bareClients[client.replace(/[0-9]/g, '')] || 0) + 1;
-                }
-                c = clients;
-                for (const client of joined) {
-                    if (c[client].g || bareClients[client.replace(/[0-9]/g, '')] > 1) {
-                        stateNode.props.liveGameController.blockUser(client);
-                        bareClients[client.replace(/[0-9]/g, '')]--;
+            try {
+                let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+                let clients = await stateNode.props.liveGameController.getDatabaseRef("c");
+                let c = {};
+                let bareClients = {};
+                clients.on("value", value => {
+                    const clients = value.val() || {};
+                    const joined = [];
+                    for (const client in clients) if (!c[client]) {
+                        joined.push(client);
+                        bareClients[client.replace(/[0-9]/g, '')] = (bareClients[client.replace(/[0-9]/g, '')] || 0) + 1;
                     }
-                }
-            });
-            clearInterval(interval)
-        } catch {}
-    }, 1000);
+                    c = clients;
+                    for (const client of joined) {
+                        if (c[client].g || bareClients[client.replace(/[0-9]/g, '')] > 1) {
+                            stateNode.props.liveGameController.blockUser(client);
+                            bareClients[client.replace(/[0-9]/g, '')]--;
+                        }
+                    }
+                });
+                clearInterval(interval)
+            } catch {}
+        }, 1000);
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/global/host/antiFloodGame.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/global/host/antiFloodGame.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -55,7 +55,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544656 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819049 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

@@ -15,17 +15,17 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.alert = i.contentWindow.alert.bind(window);
-    i.remove();
-    if (window.location.pathname !== "/cafe/shop") alert("This can only be run in the shop");
-    else {
-        const { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-        stateNode.setState({ abilities: Object.fromEntries(Object.entries(stateNode.state.abilities).map(x => [x[0], 5])) });
-    }
+        document.body.append(i);
+        window.alert = i.contentWindow.alert.bind(window);
+        i.remove();
+        if (window.location.pathname !== "/cafe/shop") alert("This can only be run in the shop");
+        else {
+            const { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+            stateNode.setState({ abilities: Object.fromEntries(Object.entries(stateNode.state.abilities).map(x => [x[0], 5])) });
+        }
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/cafe/resetAbilities.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/cafe/resetAbilities.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -40,7 +40,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544372 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818704 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

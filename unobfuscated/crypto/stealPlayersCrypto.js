@@ -15,34 +15,34 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.prompt = i.contentWindow.prompt.bind(window);
-    i.remove();
-    let target = prompt("Who's crypto would you like to steal?");
-    let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
-        if (players && Object.keys(players).map(x => x.toLowerCase()).includes(target.toLowerCase())) {
-            let [player, { cr }] = Object.entries(players).find(([name]) => name.toLowerCase() == target.toLowerCase());
-            console.log(!!players, players, player, cr, stateNode.state)
-            stateNode.setState({
-                crypto: stateNode.state.crypto + cr,
-                crypto2: stateNode.state.crypto + cr
-            });
-            stateNode.props.liveGameController.setVal({
-                path: "c/".concat(stateNode.props.client.name),
-                val: {
-                    b: stateNode.props.client.blook,
-                    p: stateNode.state.password,
-                    cr: stateNode.state.crypto + cr,
-                    tat: `${player}:${cr}`
-                }
-            });
-            console.log('done')
-        }
-    })
+        document.body.append(i);
+        window.prompt = i.contentWindow.prompt.bind(window);
+        i.remove();
+        let target = prompt("Who's crypto would you like to steal?");
+        let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+        stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
+            if (players && Object.keys(players).map(x => x.toLowerCase()).includes(target.toLowerCase())) {
+                let [player, { cr }] = Object.entries(players).find(([name]) => name.toLowerCase() == target.toLowerCase());
+                console.log(!!players, players, player, cr, stateNode.state)
+                stateNode.setState({
+                    crypto: stateNode.state.crypto + cr,
+                    crypto2: stateNode.state.crypto + cr
+                });
+                stateNode.props.liveGameController.setVal({
+                    path: "c/".concat(stateNode.props.client.name),
+                    val: {
+                        b: stateNode.props.client.blook,
+                        p: stateNode.state.password,
+                        cr: stateNode.state.crypto + cr,
+                        tat: `${player}:${cr}`
+                    }
+                });
+                console.log('done')
+            }
+        })
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/crypto/stealPlayersCrypto.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/crypto/stealPlayersCrypto.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -57,7 +57,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544417 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818779 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

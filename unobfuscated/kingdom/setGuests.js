@@ -15,14 +15,14 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.prompt = i.contentWindow.prompt.bind(window);
-    i.remove();
-    let guestScore = Number(parseInt(prompt("How many guests do you want?")));
-    Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.setState({ guestScore });
+        document.body.append(i);
+        window.prompt = i.contentWindow.prompt.bind(window);
+        i.remove();
+        let guestScore = Number(parseInt(prompt("How many guests do you want?")));
+        Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.setState({ guestScore });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/kingdom/setGuests.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/kingdom/setGuests.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -37,7 +37,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544855 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819207 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

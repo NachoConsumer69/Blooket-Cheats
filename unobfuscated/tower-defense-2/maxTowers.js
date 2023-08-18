@@ -15,17 +15,17 @@
 (() => {
     const cheat = (async () => {
         Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.state.towers.forEach(tower => {
-        tower.stats.dmg = 1e6;
-        tower.stats.fireRate = 50;
-        tower.stats.ghostDetect = true;
-        tower.stats.maxTargets = 1e6;
-        tower.stats.numProjectiles &&= 100;
-        tower.stats.range = 100;
-        if (tower.stats.auraBuffs) for (const buff in tower.stats.auraBuffs) tower.stats.auraBuffs[buff] *= 100;
-    });
+            tower.stats.dmg = 1e6;
+            tower.stats.fireRate = 50;
+            tower.stats.ghostDetect = true;
+            tower.stats.maxTargets = 1e6;
+            tower.stats.numProjectiles &&= 100;
+            tower.stats.range = 100;
+            if (tower.stats.auraBuffs) for (const buff in tower.stats.auraBuffs) tower.stats.auraBuffs[buff] *= 100;
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/tower-defense-2/maxTowers.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/tower-defense-2/maxTowers.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -40,7 +40,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544976 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819330 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

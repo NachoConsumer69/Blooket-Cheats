@@ -15,23 +15,23 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.prompt = i.contentWindow.prompt.bind(window);
-    i.remove();
-    let weight = Number(parseInt(prompt("How much weight would you like?")));
-    let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.setState({ weight, weight2: weight });
-    stateNode.props.liveGameController.setVal({
-        path: `c/${stateNode.props.client.name}`,
-        val: {
-            b: stateNode.props.client.blook,
-            w: weight,
-            f: ["Crab", "Jellyfish", "Frog", "Pufferfish", "Octopus", "Narwhal", "Megalodon", "Blobfish", "Baby Shark"][Math.floor(Math.random() * 9)]
-        }
-    });
+        document.body.append(i);
+        window.prompt = i.contentWindow.prompt.bind(window);
+        i.remove();
+        let weight = Number(parseInt(prompt("How much weight would you like?")));
+        let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+        stateNode.setState({ weight, weight2: weight });
+        stateNode.props.liveGameController.setVal({
+            path: `c/${stateNode.props.client.name}`,
+            val: {
+                b: stateNode.props.client.blook,
+                w: weight,
+                f: ["Crab", "Jellyfish", "Frog", "Pufferfish", "Octopus", "Narwhal", "Megalodon", "Blobfish", "Baby Shark"][Math.floor(Math.random() * 9)]
+            }
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/fishing/setWeight.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/fishing/setWeight.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -46,7 +46,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544557 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818949 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

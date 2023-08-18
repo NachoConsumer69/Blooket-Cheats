@@ -15,18 +15,18 @@
 (() => {
     const cheat = (async () => {
         let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.props.liveGameController.setVal({
-        path: `c/${stateNode.props.client.name}`,
-        val: {
-            b: stateNode.props.client.blook,
-            w: stateNode.state.weight,
-            f: "Frenzy",
-            s: true
-        }
-    })
+        stateNode.props.liveGameController.setVal({
+            path: `c/${stateNode.props.client.name}`,
+            val: {
+                b: stateNode.props.client.blook,
+                w: stateNode.state.weight,
+                f: "Frenzy",
+                s: true
+            }
+        })
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/fishing/frenzy.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/fishing/frenzy.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -41,7 +41,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544535 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818909 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

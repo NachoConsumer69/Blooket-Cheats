@@ -15,20 +15,20 @@
 (() => {
     const cheat = (async () => {
         let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
-        stateNode.setState({
-            players: (players ? Object.entries(players).map(([name, { b, g }]) => ({
-                name, blook: b, gold: g || 0
-            })).filter((e) => e.name != stateNode.props.client.name).sort(({ gold }, { gold: gold2 }) => gold2 - gold) : []),
-            ready: true,
-            phaseTwo: true,
-            stage: "prize",
-            choiceObj: { type: "swap" }
+        stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
+            stateNode.setState({
+                players: (players ? Object.entries(players).map(([name, { b, g }]) => ({
+                    name, blook: b, gold: g || 0
+                })).filter((e) => e.name != stateNode.props.client.name).sort(({ gold }, { gold: gold2 }) => gold2 - gold) : []),
+                ready: true,
+                phaseTwo: true,
+                stage: "prize",
+                choiceObj: { type: "swap" }
+            });
         });
     });
-    });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/gold/swapGold.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/gold/swapGold.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -43,7 +43,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544810 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819159 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

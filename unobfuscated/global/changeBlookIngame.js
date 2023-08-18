@@ -15,15 +15,15 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.prompt = i.contentWindow.prompt.bind(window);
-    i.remove();
-    let { props } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode;
-    props.client.blook = prompt("Blook Name: (Case Sensitive)");
-    props.liveGameController.setVal({ path: `c/${props.client.name}/b`, val: props.client.blook });
+        document.body.append(i);
+        window.prompt = i.contentWindow.prompt.bind(window);
+        i.remove();
+        let { props } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode;
+        props.client.blook = prompt("Blook Name: (Case Sensitive)");
+        props.liveGameController.setVal({ path: `c/${props.client.name}/b`, val: props.client.blook });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/global/changeBlookIngame.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/global/changeBlookIngame.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -38,7 +38,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544583 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818965 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

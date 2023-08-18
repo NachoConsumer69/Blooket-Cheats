@@ -15,22 +15,22 @@
 (() => {
     const cheat = (async () => {
         let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.state.choices.forEach(({ text }, index) => {
-        let chest = document.querySelector(`div[class^='styles__choice${index + 1}']`);
-        if (!chest || chest.querySelector('div')) return;
-        let choice = document.createElement('div')
-        choice.style.color = "white";
-        choice.style.fontFamily = "Eczar";
-        choice.style.fontSize = "2em";
-        choice.style.display = "flex";
-        choice.style.justifyContent = "center";
-        choice.style.transform = "translateY(200px)";
-        choice.innerText = text;
-        chest.append(choice)
-    });
+        stateNode.state.choices.forEach(({ text }, index) => {
+            let chest = document.querySelector(`div[class^='styles__choice${index + 1}']`);
+            if (!chest || chest.querySelector('div')) return;
+            let choice = document.createElement('div')
+            choice.style.color = "white";
+            choice.style.fontFamily = "Eczar";
+            choice.style.fontSize = "2em";
+            choice.style.display = "flex";
+            choice.style.justifyContent = "center";
+            choice.style.transform = "translateY(200px)";
+            choice.innerText = text;
+            chest.append(choice)
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/gold/chestESP.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/gold/chestESP.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -45,7 +45,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544774 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819127 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

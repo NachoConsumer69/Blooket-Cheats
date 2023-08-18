@@ -15,14 +15,14 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.alert = i.contentWindow.alert.bind(window);
-    i.remove();
-    document.querySelector('input[class*="nameInput"]').maxLength = 120; /* 120 is the actual limit */
-    alert("Removed name length limit");
+        document.body.append(i);
+        window.alert = i.contentWindow.alert.bind(window);
+        i.remove();
+        document.querySelector('input[class*="nameInput"]').maxLength = 120; /* 120 is the actual limit */
+        alert("Removed name length limit");
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/global/removeNameLimit.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/global/removeNameLimit.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -37,7 +37,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544676 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819069 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

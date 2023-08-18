@@ -15,11 +15,11 @@
 (() => {
     const cheat = (async () => {
         let { stateNode: { ducks, tiles } } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    ducks.forEach(x => { tiles[x.y][x.x] = 0; });
-    ducks.length = 0;
+        ducks.forEach(x => { tiles[x.y][x.x] = 0; });
+        ducks.length = 0;
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/tower-defense/removeDucks.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/tower-defense/removeDucks.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -34,7 +34,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544945 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819309 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

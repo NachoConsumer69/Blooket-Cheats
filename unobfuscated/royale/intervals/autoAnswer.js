@@ -15,12 +15,12 @@
 (() => {
     const cheat = (async () => {
         setInterval(() => {
-        let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-        stateNode?.onAnswer?.(true, stateNode.props.client.question.correctAnswers[0]);
-    }, 50);
+            let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+            stateNode?.onAnswer?.(true, stateNode.props.client.question.correctAnswers[0]);
+        }, 50);
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/royale/intervals/autoAnswer.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/royale/intervals/autoAnswer.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -35,7 +35,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544899 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819287 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

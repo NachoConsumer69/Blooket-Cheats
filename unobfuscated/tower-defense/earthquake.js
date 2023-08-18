@@ -15,28 +15,28 @@
 (() => {
     const cheat = (async () => {
         let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.setState({
-        eventName: "Earthquake",
-        event: {
-            short: "e",
-            color: "#805500",
-            icon: "fas fa-mountain",
-            desc: "All of your towers get mixed up",
-            rate: .02
-        },
-        buyTowerName: "",
-        buyTower: {}
-    }, () => stateNode.eventTimeout = setTimeout(() => stateNode.setState({ event: {}, eventName: "" }), 6e3));
-    stateNode.tiles.forEach(row => row.forEach((col, i) => col === 3 && (row[i] = 0)));
-    let tiles = stateNode.tiles.flatMap((_, y) => _.map((__, x) => __ === 0 && ({ x, y }))).filter(Boolean).sort(() => .5 - Math.random());
-    stateNode.towers.forEach(tower => {
-        let { x, y } = tiles.shift();
-        tower.move(x, y, stateNode.tileSize);
-        stateNode.tiles[y][x] = 3;
-    });
+        stateNode.setState({
+            eventName: "Earthquake",
+            event: {
+                short: "e",
+                color: "#805500",
+                icon: "fas fa-mountain",
+                desc: "All of your towers get mixed up",
+                rate: .02
+            },
+            buyTowerName: "",
+            buyTower: {}
+        }, () => stateNode.eventTimeout = setTimeout(() => stateNode.setState({ event: {}, eventName: "" }), 6e3));
+        stateNode.tiles.forEach(row => row.forEach((col, i) => col === 3 && (row[i] = 0)));
+        let tiles = stateNode.tiles.flatMap((_, y) => _.map((__, x) => __ === 0 && ({ x, y }))).filter(Boolean).sort(() => .5 - Math.random());
+        stateNode.towers.forEach(tower => {
+            let { x, y } = tiles.shift();
+            tower.move(x, y, stateNode.tileSize);
+            stateNode.tiles[y][x] = 3;
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/tower-defense/earthquake.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/tower-defense/earthquake.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -51,7 +51,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544934 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819302 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

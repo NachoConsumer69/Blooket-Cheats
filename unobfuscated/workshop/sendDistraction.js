@@ -15,18 +15,18 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.alert = i.contentWindow.alert.bind(window);
-    i.remove();
-    let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    let distractions = { c: "Oh Canada", b: "Blizzard", f: "Fog Spell", d: "Dark & Dusk", w: "Howling Wind", g: "Gift Time!", t: "TREES", s: "Snow Plow", fr: "Use The Force" };
-    let val = Object.keys(distractions)[Math.floor(Math.random() * Object.keys(distractions).length)];
-    stateNode.safe = true;
-    stateNode.props.liveGameController.setVal({ path: `c/${stateNode.props.client.name}/tat`, val });
-    alert(`Sent a ${distractions[val]} distraction`);
+        document.body.append(i);
+        window.alert = i.contentWindow.alert.bind(window);
+        i.remove();
+        let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+        let distractions = { c: "Oh Canada", b: "Blizzard", f: "Fog Spell", d: "Dark & Dusk", w: "Howling Wind", g: "Gift Time!", t: "TREES", s: "Snow Plow", fr: "Use The Force" };
+        let val = Object.keys(distractions)[Math.floor(Math.random() * Object.keys(distractions).length)];
+        stateNode.safe = true;
+        stateNode.props.liveGameController.setVal({ path: `c/${stateNode.props.client.name}/tat`, val });
+        alert(`Sent a ${distractions[val]} distraction`);
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/workshop/sendDistraction.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/workshop/sendDistraction.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -41,7 +41,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366545005 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819428 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

@@ -15,15 +15,15 @@
 (() => {
     const cheat = (async () => {
         let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.state.gold == 0 && stateNode.setState({ gold: 100, gold2: 100 });
-    stateNode._choosePrize ||= stateNode.choosePrize;
-    stateNode.choosePrize = function (i) {
-        stateNode.state.choices[i] = { type: "multiply", val: 3, text: "Triple Gold!", blook: "Unicorn" };
-        stateNode._choosePrize(i);
-    }
+        stateNode.state.gold == 0 && stateNode.setState({ gold: 100, gold2: 100 });
+        stateNode._choosePrize ||= stateNode.choosePrize;
+        stateNode.choosePrize = function (i) {
+            stateNode.state.choices[i] = { type: "multiply", val: 3, text: "Triple Gold!", blook: "Unicorn" };
+            stateNode._choosePrize(i);
+        }
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/gold/alwaysTriple.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/gold/alwaysTriple.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -38,7 +38,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544742 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819117 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

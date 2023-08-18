@@ -15,24 +15,24 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.alert = i.contentWindow.alert.bind(window);
-    window.confirm = i.contentWindow.confirm.bind(window);
-    i.remove();
-    let { webpack } = webpackJsonp.push([[], { ['1234']: (_, a, b) => { a.webpack = b }, }, [['1234']]]),
-        axios = Object.values(webpack.c).find((x) => x.exports?.a?.get).exports.a,
-        { sellBlook } = Object.values(webpack.c).find(x => x.exports.a?.sellBlook).exports.a;
-    axios.get("https://dashboard.blooket.com/api/users").then(async ({ data: { unlocks } }) => {
-        let blooks = Object.entries(unlocks).filter(([blook, amount]) => amount > 1 && !["Legendary", "Chroma", "Mystical"].includes(webpackJsonp.push([[], { ['1234']: (_, a, b) => { a.webpack = b } }, [['1234']]]).webpack("MDrD").a[blook].rarity));
-        if (confirm(`Are you sure you want to sell your uncommon to epic dupes?`)) {
-            let now = Date.now();
-            for (const [blook, amount] of blooks) await sellBlook({ blook, numToSell: amount - 1 });
-            alert(`(${Date.now() - now}ms) Results:\n${blooks.map(([blook, amount]) => `    ${blook} ${amount - 1}`).join(`\n`)}`);
-        }
-    }).catch(() => alert('There was an error user data!'));
+        document.body.append(i);
+        window.alert = i.contentWindow.alert.bind(window);
+        window.confirm = i.contentWindow.confirm.bind(window);
+        i.remove();
+        let { webpack } = webpackJsonp.push([[], { ['1234']: (_, a, b) => { a.webpack = b }, }, [['1234']]]),
+            axios = Object.values(webpack.c).find((x) => x.exports?.a?.get).exports.a,
+            { sellBlook } = Object.values(webpack.c).find(x => x.exports.a?.sellBlook).exports.a;
+        axios.get("https://dashboard.blooket.com/api/users").then(async ({ data: { unlocks } }) => {
+            let blooks = Object.entries(unlocks).filter(([blook, amount]) => amount > 1 && !["Legendary", "Chroma", "Mystical"].includes(webpackJsonp.push([[], { ['1234']: (_, a, b) => { a.webpack = b } }, [['1234']]]).webpack("MDrD").a[blook].rarity));
+            if (confirm(`Are you sure you want to sell your uncommon to epic dupes?`)) {
+                let now = Date.now();
+                for (const [blook, amount] of blooks) await sellBlook({ blook, numToSell: amount - 1 });
+                alert(`(${Date.now() - now}ms) Results:\n${blooks.map(([blook, amount]) => `    ${blook} ${amount - 1}`).join(`\n`)}`);
+            }
+        }).catch(() => alert('There was an error user data!'));
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/global/sellCheapDuplicates.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/global/sellCheapDuplicates.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -47,7 +47,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544684 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819083 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

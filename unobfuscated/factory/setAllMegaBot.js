@@ -15,22 +15,22 @@
 (() => {
     const cheat = (async () => {
         Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.setState({
-        blooks: new Array(10).fill({
-            name: "Mega Bot",
-            color: "#d71f27",
-            class: "🤖",
-            rarity: "Legendary",
-            cash: [8e4, 43e4, 42e5, 62e6, 1e9],
-            time: [5, 5, 3, 3, 3],
-            price: [7e6, 12e7, 19e8, 35e9],
-            active: false,
-            level: 4,
-            bonus: 5.5
-        })
-    });
+            blooks: new Array(10).fill({
+                name: "Mega Bot",
+                color: "#d71f27",
+                class: "🤖",
+                rarity: "Legendary",
+                cash: [8e4, 43e4, 42e5, 62e6, 1e9],
+                time: [5, 5, 3, 3, 3],
+                price: [7e6, 12e7, 19e8, 35e9],
+                active: false,
+                level: 4,
+                bonus: 5.5
+            })
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/factory/setAllMegaBot.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/factory/setAllMegaBot.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -45,7 +45,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544521 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818904 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

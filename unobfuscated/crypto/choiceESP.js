@@ -15,22 +15,22 @@
 (() => {
     const cheat = (async () => {
         let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    let { text } = stateNode.state.choices[0];
-    let chest = document.querySelector('[class^=styles__feedbackContainer___]');
-    if (chest.children.length <= 4) {
-        let choice = document.createElement('div')
-        choice.style.color = "white";
-        choice.style.fontFamily = "Inconsolata,Helvetica,monospace,sans-serif";
-        choice.style.fontSize = "2em";
-        choice.style.display = "flex";
-        choice.style.justifyContent = "center";
-        choice.style.marginTop = "675px";
-        choice.innerText = text;
-        chest.append(choice);
-    }
+        let { text } = stateNode.state.choices[0];
+        let chest = document.querySelector('[class^=styles__feedbackContainer___]');
+        if (chest.children.length <= 4) {
+            let choice = document.createElement('div')
+            choice.style.color = "white";
+            choice.style.fontFamily = "Inconsolata,Helvetica,monospace,sans-serif";
+            choice.style.fontSize = "2em";
+            choice.style.display = "flex";
+            choice.style.justifyContent = "center";
+            choice.style.marginTop = "675px";
+            choice.innerText = text;
+            chest.append(choice);
+        }
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/crypto/choiceESP.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/crypto/choiceESP.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -45,7 +45,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544396 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818724 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

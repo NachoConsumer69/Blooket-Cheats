@@ -15,30 +15,30 @@
 (() => {
     const cheat = (async () => {
         let stats = ['materials', 'people', 'happiness', 'gold'];
-    let elements = Object.fromEntries([...document.querySelectorAll('[class^=styles__statContainer]')].map((container, i) => [stats[i], container]));
-    let { guest: data, phase } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.state;
-    if (phase == "choice") {
-        Array.from(document.getElementsByClassName('choiceESP')).forEach(x => x.remove());
-        Object.entries(data.yes || {}).forEach(x => {
-            if (x[0] == 'msg' || !stats.includes(x[0])) return;
-            let element = document.createElement('div');
-            element.className = 'choiceESP';
-            element.style = 'font-size: 24px; color: rgb(75, 194, 46); font-weight: bolder;';
-            element.innerText = String(x[1])
-            elements[x[0]].appendChild(element);
-        })
-        Object.entries(data.no || {}).forEach(x => {
-            if (x[0] == 'msg' || !stats.includes(x[0])) return;
-            let element = document.createElement('div');
-            element.className = 'choiceESP';
-            element.style = 'font-size: 24px; color: darkred; font-weight: bolder;';
-            element.innerText = String(x[1])
-            elements[x[0]].appendChild(element);
-        })
-    }
+        let elements = Object.fromEntries([...document.querySelectorAll('[class^=styles__statContainer]')].map((container, i) => [stats[i], container]));
+        let { guest: data, phase } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner.stateNode.state;
+        if (phase == "choice") {
+            Array.from(document.getElementsByClassName('choiceESP')).forEach(x => x.remove());
+            Object.entries(data.yes || {}).forEach(x => {
+                if (x[0] == 'msg' || !stats.includes(x[0])) return;
+                let element = document.createElement('div');
+                element.className = 'choiceESP';
+                element.style = 'font-size: 24px; color: rgb(75, 194, 46); font-weight: bolder;';
+                element.innerText = String(x[1])
+                elements[x[0]].appendChild(element);
+            })
+            Object.entries(data.no || {}).forEach(x => {
+                if (x[0] == 'msg' || !stats.includes(x[0])) return;
+                let element = document.createElement('div');
+                element.className = 'choiceESP';
+                element.style = 'font-size: 24px; color: darkred; font-weight: bolder;';
+                element.innerText = String(x[1])
+                elements[x[0]].appendChild(element);
+            })
+        }
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/kingdom/choiceESP.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/kingdom/choiceESP.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -53,7 +53,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544832 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819175 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

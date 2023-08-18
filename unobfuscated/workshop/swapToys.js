@@ -15,18 +15,18 @@
 (() => {
     const cheat = (async () => {
         let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
-        stateNode.setState({
-            choosingPlayer: false,
-            players: (players ? Object.entries(players).map(([name, { b, t }]) => ({ name, blook: b, toys: t || 0 })).filter((e) => e.name != stateNode.props.client.name).sort(({ toys }, { toys: toys2 }) => toys2 - toys) : []),
-            phaseTwo: true,
-            stage: "prize",
-            choiceObj: { type: "swap" }
-        }, () => setTimeout(() => stateNode.setState({ choosingPlayer: true }), 300));
-    });
+        stateNode.props.liveGameController.getDatabaseVal("c", (players) => {
+            stateNode.setState({
+                choosingPlayer: false,
+                players: (players ? Object.entries(players).map(([name, { b, t }]) => ({ name, blook: b, toys: t || 0 })).filter((e) => e.name != stateNode.props.client.name).sort(({ toys }, { toys: toys2 }) => toys2 - toys) : []),
+                phaseTwo: true,
+                stage: "prize",
+                choiceObj: { type: "swap" }
+            }, () => setTimeout(() => stateNode.setState({ choosingPlayer: true }), 300));
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/workshop/swapToys.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/workshop/swapToys.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -41,7 +41,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366545014 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367819438 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();

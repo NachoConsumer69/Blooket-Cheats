@@ -15,22 +15,22 @@
 (() => {
     const cheat = (async () => {
         let i = document.createElement('iframe');
-    document.body.append(i);
-    window.prompt = i.contentWindow.prompt.bind(window);
-    i.remove();
-    let cafeCash = Number(parseInt(prompt("How much cash would you like?")));
-    let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
-    stateNode.setState({ cafeCash });
-    stateNode.props.liveGameController.setVal({
-        path: `c/${stateNode.props.client.name}`,
-        val: {
-            b: stateNode.props.client.blook,
-            ca: cafeCash
-        }
-    });
+        document.body.append(i);
+        window.prompt = i.contentWindow.prompt.bind(window);
+        i.remove();
+        let cafeCash = Number(parseInt(prompt("How much cash would you like?")));
+        let { stateNode } = Object.values(document.querySelector('body div[class*="camelCase"]'))[1].children[0]._owner;
+        stateNode.setState({ cafeCash });
+        stateNode.props.liveGameController.setVal({
+            path: `c/${stateNode.props.client.name}`,
+            val: {
+                b: stateNode.props.client.blook,
+                ca: cafeCash
+            }
+        });
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/cafe/setCash.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/autoupdate/timestamps/cafe/setCash.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -45,7 +45,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1692366544377 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1692367818706 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();
